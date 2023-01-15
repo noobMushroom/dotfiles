@@ -8,6 +8,8 @@
 alias lf="lfrun"
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
+# command to set background automaitcally
+export PATH=$PATH:$HOME/.local/bin
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

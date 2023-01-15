@@ -581,7 +581,9 @@ schemes:
 # *SolarizedDark
 # *TomorrowNight
 
-colors: *Dracula
+#colors are maintained by pywal
+
+#colors: *Dracula
 
 #######################################
 ##       END OF COLOR SCHEMES        ##

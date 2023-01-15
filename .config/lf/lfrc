@@ -71,13 +71,6 @@ cmd open_config  ${{
   $EDITOR $(bookmenu -b ~/.config/bookmenu/configs -f fzf -o)
 }}
 
-cmd dragon %dragon-drag-and-drop -a -x $fx
-cmd dragon-stay %dragon-drag-and-drop -a $fx
-cmd dragon-individual %dragon-drag-and-drop $fx
-cmd cpdragon %cpdragon
-cmd mvdragon %mvdragon
-cmd dlfile %dlfile
-
 # Archive bindings
 cmd unarchive ${{
   case "$f" in
@@ -153,15 +146,6 @@ map tr restore_trash
 # Broot Mapping
 map f broot_jump
 
-# Dragon Mapping
-map dr dragon
-map ds dragon-stay
-map di dragon-individual
-map dm mvdragon
-map dc cpdragon
-map dl dlfile
-
-map ss stripspace
 
 # Basic Functions
 map . set hidden!
