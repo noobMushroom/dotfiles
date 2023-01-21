@@ -1,15 +1,16 @@
-# Basic Settings
+#Basic Settings
 set preview true
 set drawbox true
 set icons true
 set ignorecase true
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
+EDITOR=/usr/bin/nvim
 # Custom Functions
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
-        text/*|application/json) $EDITOR "$f";;
-        *) xdg-open "$f" ;;
+        text/*|application/json) /usr/bin/nvim "$f";;
+        *) feh --scale-down "$f" ;;
     esac
 }}
 
@@ -22,7 +23,7 @@ cmd mkdir ${{
 cmd mkfile ${{
   printf "File Name: "
   read ans
-  $EDITOR $ans
+  /usr/bin/nvim $ans
 }}
 
 cmd chmod ${{
@@ -40,7 +41,7 @@ cmd chmod ${{
 cmd sudomkfile ${{
   printf "File Name: "
   read ans
-  sudo $EDITOR $ans
+  sudo /usr/bin/nvim $ans
 }}
 
 cmd setwallpaper %cp "$f" ~/.config/wall.png && xwallpaper --zoom "$f"
@@ -68,7 +69,7 @@ cmd broot_jump ${{
 }}
 
 cmd open_config  ${{
-  $EDITOR $(bookmenu -b ~/.config/bookmenu/configs -f fzf -o)
+  /usr/bin/nvim $(bookmenu -b ~/.config/bookmenu/configs -f fzf -o)
 }}
 
 # Archive bindings
@@ -113,6 +114,9 @@ cmd restore_trash ${{
   trash-restore
 }}
 
+cmd term %cd "$f" && alacritty 
+#cmd term %echo "set-working-directory $f" | alacritty --command
+
 cmd stripspace %stripspace "$f"
 
 # Bindings
@@ -128,7 +132,7 @@ map e
 map f
 
 # File Openers
-map ee $$EDITOR "$f"
+map ee $/usr/bin/nvim "$f"
 map u $view "$f"
 
 # Archive Mappings
@@ -168,7 +172,8 @@ map L bottom
 map R reload
 map C clear
 map U unselect
-
+#to open in terminal
+map T term
 # Movement
 map gtr cd ~/.local/share/Trash/files
 

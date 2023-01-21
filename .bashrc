@@ -17,7 +17,6 @@ export NVM_DIR="$HOME/.nvm"
 . "$HOME/.cargo/env"
 
 
-
 grey='\[\033[1;30m\]'
 red='\[\033[0;31m\]'
 RED='\[\033[1;31m\]'
@@ -215,3 +214,7 @@ ex=:\
 *.nix=:\
 "
 alias config='/usr/bin/git --git-dir=/home/mushroom/dotfiles --work-tree=/home/mushroom'
+
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion

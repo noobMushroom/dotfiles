@@ -1,9 +1,11 @@
 #!/bin/sh
 
 echo "Choosing a random wallpaper"
-
+picture_name=$1
+# wall=$HOME/wallpapers/$picture_name
+wall=$picture_name
 #choosing a random wallpaper form the wallpapers folder in home direoctory
-wall=$(find $HOME/wallpapers -type f | shuf -n 1)
+# wall=$(find $HOME/wallpapers -type f | shuf -n 1)
 echo "Setting the wallpaper"
 # setting a the the wallpaper with the help of feh
 feh --bg-fill $wall

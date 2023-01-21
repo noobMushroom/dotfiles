@@ -2,7 +2,7 @@
 #
 dwmstatus 2>&1 >/dev/null &
 ~/.fehbg
-/home/mushroom/.local/src/dwm-bar/dwm_bar.sh &
+# /home/mushroom/.local/src/dwm-bar/dwm_bar.sh &
 picom -b &
 xset +fp /home/mushroom/.fonts
 xset fp rehash
@@ -11,4 +11,5 @@ xset fp rehash
 # done
 # exec dwm 
 #
+dwmblocks &
 while type dwm >/dev/null ; do dwm && continue || break; done 
