@@ -1,8 +1,6 @@
 #
 # ~/.bashrc
 #
-
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 alias lf="lfrun"
@@ -10,6 +8,8 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 # command to set background automaitcally
 export PATH=$PATH:$HOME/.local/bin
+export EDITOR=nvim
+export TERMINAL=alacritty
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -214,7 +214,4 @@ ex=:\
 *.nix=:\
 "
 alias config='/usr/bin/git --git-dir=/home/mushroom/dotfiles --work-tree=/home/mushroom'
-
-# Use bash-completion, if available
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
+# fish

@@ -60,6 +60,7 @@ Plug 'AlphaTechnolog/pywal.nvim', { 'as': 'pywal' }
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
+Plug 'cespare/vim-toml'
 "one dare theme
 Plug 'navarasu/onedark.nvim'
 " Completion / linters / formatters
