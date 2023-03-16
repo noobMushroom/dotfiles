@@ -38,7 +38,6 @@ else
     endif
 endif
 
-
 " Italics
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
@@ -145,12 +144,10 @@ let g:onedark_config = {
             \ }
 
 colorscheme sobrio 
-
-" for vim wiki confgi file
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
 "colorscheme pywal
 
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
+                       \ 'syntax': 'markdown', 'ext': '.wiki'}]
 "For rust
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
