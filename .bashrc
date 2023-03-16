@@ -51,6 +51,7 @@ PS1="$RED\w$YELLOW\$(git_info)$BLUE>\[ $NC\]"
 
 colorscript -r
 
+# fish
 
 export LF_ICONS="\
 di=:\

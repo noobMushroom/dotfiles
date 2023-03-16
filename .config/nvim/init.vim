@@ -23,9 +23,8 @@ set tabstop=2
 filetype plugin indent on
 syntax on
 
-
 set t_Co=256
-
+let g:onedark_termcolors=256
 
 " True color if available
 let term_program=$TERM_PROGRAM
@@ -46,6 +45,8 @@ let &t_ZR="\e[23m"
 
 
 call plug#begin()
+"vimwiki
+Plug 'vimwiki/vimwiki'
 " Appearance
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
@@ -134,7 +135,7 @@ augroup END
 
 
 let g:onedark_config = {
-            \ 'style': 'deep',
+            \ 'style': 'cool',
             \ 'toggle_style_key': '<leader>ts',
             \ 'ending_tildes': v:true,
             \ 'diagnostics': {
@@ -144,6 +145,10 @@ let g:onedark_config = {
             \ }
 
 colorscheme sobrio 
+
+" for vim wiki confgi file
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
 "colorscheme pywal
 
 "For rust
