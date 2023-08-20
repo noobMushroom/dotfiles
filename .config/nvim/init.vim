@@ -2,6 +2,8 @@
 set nocompatible
 filetype off
 set encoding=UTF-8
+set spell
+set spelllang=en_us
 set completeopt=noinsert,menuone,noselect
 set cursorline
 set clipboard+=unnamedplus
@@ -14,6 +16,9 @@ set splitbelow splitright
 set title
 set ttimeoutlen=0
 set wildmenu
+" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/undo
 
 " Tabs size
 set expandtab
@@ -72,6 +77,11 @@ Plug 'tpope/vim-commentary'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Git
 Plug 'airblade/vim-gitgutter'
+"Buffers
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+"Undo tree
+Plug 'simnalamburt/vim-mundo'
 call plug#end()
 
 inoremap <silent><expr> <TAB>
@@ -146,10 +156,11 @@ let g:onedark_config = {
 colorscheme sobrio 
 "colorscheme pywal
 
-let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
-                       \ 'syntax': 'markdown', 'ext': '.wiki'}]
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/','syntax': 'media', 'ext': '.wiki'}]
+
 "For rust
 let g:rustfmt_autosave = 1
 let g:rustfmt_emit_files = 1
 let g:rustfmt_fail_silently = 0
 
+so ~/.config/nvim/colors/mycolorscheme.vim

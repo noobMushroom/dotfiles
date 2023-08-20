@@ -1,11 +1,13 @@
-#
+
 # ~/.bashrc
 #
 # If not running interactively, don't do anything
+
 [[ $- != *i* ]] && return
 alias lf="lfrun"
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
+
 # command to set background automaitcally
 export PATH=$PATH:$HOME/.local/bin
 export EDITOR=nvim
@@ -216,3 +218,9 @@ ex=:\
 "
 alias config='/usr/bin/git --git-dir=/home/mushroom/dotfiles --work-tree=/home/mushroom'
 # fish
+
+# # For the password of postgresql
+ # set -x PGPASSFILE ~/.pgpass
+
+ # set -x  PGSERVICEFILE ~/.pg_service.conf
+

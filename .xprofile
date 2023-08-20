@@ -1,0 +1,6 @@
+#!/bin/sh
+~/.fehbg
+picom -b &
+xset +fp /home/mushroom/.fonts
+xset fp rehash
+dwmblocks &

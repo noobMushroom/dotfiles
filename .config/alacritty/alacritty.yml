@@ -583,7 +583,7 @@ schemes:
 
 #colors are maintained by pywal
 
-#colors: *Dracula
+colors: *TomorrowNight
 
 #######################################
 ##       END OF COLOR SCHEMES        ##

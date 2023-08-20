@@ -11,7 +11,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: #f9a no-repeat url(img/Konachan.com-ass.jpg) center;
+    background: #f9a no-repeat
+      url(img/RDT_20230721_2353468133075060655154229.jpg) center;
     background-size: cover;
     width: 100vw;
     height: 100vh;
