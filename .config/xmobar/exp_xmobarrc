@@ -24,10 +24,25 @@ Config { overrideRedirect = False
                         , "--on", ""
                         ]
                     , Run Memory ["--template", "Mem: <usedratio>%"] 10
+                    , Run DynNetwork [ "--template" , " <tx>kB/s|<rx>kB/s"
+                             , "--Low"      , "1000"       -- units: B/s
+                             , "--High"     , "5000"       -- units: B/s
+                             , "--low"      , "white"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                             ] 10
+                    , Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
+                             , "--Low"      , "70"        -- units: °C
+                             , "--High"     , "80"        -- units: °C
+                             , "--low"      , "pink"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkred"
+                             ] 50
                     , Run Swap [] 10
-                    , Run Date  "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+                    , Run Date  "%F (%a) %T" "date" 10
+                    , Run Com ".local/bin/network_id" [] "network_name" 60
                     , Run XMonadLog
-                    , Run Uptime ["-t", "uptime: <days>d <hours>h"] 360
+                    , Run Uptime ["--template", "uptime: <days>d <hours>h <minutes>m"]60
                     , Run Battery [ "--template" , "<acstatus>"
                              , "--Low"      , "10"        -- units: %
                              , "--High"     , "80"        -- units: %
@@ -46,5 +61,5 @@ Config { overrideRedirect = False
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %alsa:default:Master% | %battery% | %cpu% | %memory% * %swap% | %uptime% | %date% "
+       , template = "%XMonadLog% }{ %alsa:default:Master% | %battery% | %network_name%: %dynnetwork% | %coretemp%| %cpu% | %memory% * %swap% | %uptime% | %date% "
        }
