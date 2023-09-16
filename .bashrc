@@ -220,7 +220,6 @@ ex=:\
 "
 alias config='/usr/bin/git --git-dir=/home/mushroom/dotfiles --work-tree=/home/mushroom'
 fish
-
 # For the password of postgresql
  set -x PGPASSFILE ~/.pgpass
 
