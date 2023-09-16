@@ -13,6 +13,8 @@ export PATH=$PATH:$HOME/.local/bin
 export EDITOR=nvim
 export TERMINAL=alacritty
 
+export PATH="$HOME/.config/emacs/bin:$PATH"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -217,10 +219,10 @@ ex=:\
 *.nix=:\
 "
 alias config='/usr/bin/git --git-dir=/home/mushroom/dotfiles --work-tree=/home/mushroom'
-# fish
+fish
 
-# # For the password of postgresql
- # set -x PGPASSFILE ~/.pgpass
+# For the password of postgresql
+ set -x PGPASSFILE ~/.pgpass
 
- # set -x  PGSERVICEFILE ~/.pg_service.conf
+ set -x  PGSERVICEFILE ~/.pg_service.conf
 
