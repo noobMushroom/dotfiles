@@ -1,0 +1,75 @@
+-- Xmobar (http://projects.haskell.org/xmobar/)
+-- This is one of the xmobar configurations for DTOS.
+-- This config is packaged in the DTOS repo as 'dtos-xmobar'
+-- Color scheme: Gruvbox Dark
+-- Dependencies: 
+   -- otf-font-awesome 
+   -- ttf-mononoki 
+   -- ttf-ubuntu-font-family
+   -- htop
+   -- emacs
+   -- pacman (Arch Linux)
+   -- trayer
+   -- 'dtos-local-bin' (from dtos-core-repo)
+
+Config {overrideRedirect = False,
+       font = "Ubuntu Bold 14"
+       , additionalFonts = [ "Mononoki 14"
+                           , "Font Awesome 14 Free Solid 12"
+                           , "Font Awesome 14 Brands 12"
+                           ]
+       , bgColor      = "#282828"
+       , fgColor      = "#ebdbb2"
+       , position       = TopH 30
+       , commands = [
+                        -- Echos a "penguin" icon in front of the kernel output.
+                      Run Com "echo" ["<fn=3>\xf17c</fn>"] "penguin" 3600
+                        -- Get kernel version (script found in .local/bin)
+                    , Run Com ".local/bin/kernel" [] "kernel" 36000
+                        -- Cpu usage in percent
+                    , Run Cpu ["-t", "<fn=2>\xf108</fn>  cpu: (<total>%)","-H","50","--high","red"] 20
+                        -- Ram used number and percent
+                    , Run Memory ["-t", "<fn=2>\xf233</fn>  mem: <used>M (<usedratio>%)"] 20
+                        -- Disk space free
+                    , Run DiskU [("/", "<fn=2>\xf0c7</fn>  hdd: <free> free")] [] 60
+                        -- Echos an "up arrow" icon in front of the uptime output.
+                    , Run Com "echo" ["<fn=2>\xf0aa</fn>"] "uparrow" 3600
+                        -- Uptime
+                    , Run Uptime ["-t", "uptime: <days>d <hours>h"] 360
+                        -- Echos a "bell" icon in front of the pacman updates.
+                    , Run Com "echo" ["<fn=2>\xf0f3</fn>"] "bell" 3600
+                        -- Check for pacman updates (script found in .local/bin)
+                    , Run Com ".local/bin/pacupdate" [] "pacupdate" 36000
+                        -- Echos a "battery" icon in front of the pacman updates.
+                    , Run Com "echo" ["<fn=2>\xf242</fn>"] "baticon" 3600
+                        -- Battery
+                    --, Run BatteryP ["BAT0"] ["-t", "<acstatus><watts> (<left>%)"] 360
+                        -- Time and date
+                    --, Run Date "<fn=2>\xf017</fn>  %b %d %Y - (%H:%M) " "date" 50
+                        -- Prints out the left side items such as workspaces, layout, etc.
+                    , Run XMonadLog
+                    -- battery monitor
+                    , Run Battery [ "--template" , "<acstatus>"
+                             , "--Low"      , "10"        -- units: %
+                             , "--High"     , "80"        -- units: %
+                             , "--low"      , "darkred"
+                             , "--normal"   , "darkorange"
+                             , "--high"     , "darkgreen"
+
+                             , "--" -- battery specific options
+                                       -- discharging status
+                                       , "-o"	, "<left>% (<timeleft>)"
+                                       -- AC "on" status
+                                       , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                       -- charged status
+                                       , "-i"	, "<fc=#006000>Charged</fc>"
+                             ] 50
+
+                    -- time and date indicator 
+                    -- (%F = y-m-d date, %a = day of week, %T = h:m:s time)
+                    , Run Date  "<fc=#ABABAB>%F (%a) %T</fc>" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %XMonadLog% }{ <box type=Bottom width=2 mb=2 color=#d3869b><fc=#d3869b>%penguin%  %kernel%</fc></box>    <box type=Bottom width=2 mb=2 color=#b8bb26><fc=#b8bb26>%cpu%</fc></box> <box type=Bottom width=2 mb=2 color=#458588><fc=#458588>%memory%</fc></box> <box type=Bottom width=2 mb=2 color=#d79921><fc=#d79921>%disku%</fc></box> <box type=Bottom width=2 mb=2 color=#b16286><fc=#b16286>%uparrow%  %uptime%</fc></box> <box type=Bottom width=2 mb=2 color=#689d6a><fc=#689d6a>%bell%  <action=`alacritty -e sudo pacman -Syu`>%pacupdate%</action></fc></box> <box type=Bottom width=2 mb=2 color=#fb4934><fc=#fb4934>%baticon%  %battery%</fc></box> <box type=Bottom width=2 mb=2 color=#83a598><fc=#83a598>%date%</fc></box>"
+       }

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Prints the current brightness
+
+case $BLOCK_BUTTON in
+    1) xbacklight -inc 10;;
+    2) xbacklight -dec 10;;
+    3) notify-send "💡 Brightness module" "\- Shows current brightness.
+- Scroll up to increase brightness.
+- Scroll down to decrease brightness." ;;
+    6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+brightness="$(light -G)"
+brightness="${brightness%.*}"
+
+case 1 in
+    $((brightness >= 70)) ) icon="🌕" ;;
+    $((brightness >= 30)) ) icon="🌗" ;;
+    $((brightness >= 1)) ) icon="🌘" ;;
+    * ) echo "🌑" && exit ;;
+esac
+
+echo "$icon $brightness%"

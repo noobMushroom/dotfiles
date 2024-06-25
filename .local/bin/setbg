@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+picture_name=$1
+
+wal -i $picture_name
+sed -i '17d' ~/.cache/wal/colors-wal-dwm.h
+
+echo "Recompiling dwm with new colors"
+(cd $HOME/repos/dwm-6.5 && sudo make clean install>/dev/null)
+
+echo "restart your dwm"

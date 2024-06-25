@@ -1,0 +1,117 @@
+[env]
+TERM = "xterm-256color"
+
+[window]
+padding = {x = 2, y = 2}
+dynamic_padding = false
+opacity = 0.5 
+title = "Alacritty"
+class = {instance = "Alacritty", general = "Alacritty"}
+
+[scrolling]
+history = 5000
+
+[font]
+normal = { family = "Source Code Pro", style = "Regular" }
+bold = { family = "Source Code Pro", style = "Bold"}
+italic = { family = "Source Code Pro", style = "Italic"}
+bold_italic = { family = "Source Code Pro", style = "Bold Italic"}
+#indexed_colors = [{index = 16, color = "0xf78c6c"},
+#                {index = 17, color = "0xff5370"},
+#                {index = 18, color = "0x303030"},
+#                {index = 19, color = "0x353535"},
+#                {index = 20, color = "0xb2ccd6"},
+#                {index = 21, color = "0xeeffff"}]
+size = 8 
+offset = {x = 0, y = 1}
+glyph_offset = {x = 0, y = 1}
+#draw_bold_text_with_bright_colors = true
+
+[colors]
+
+[colors.primary]
+background = '0x1f1f28'
+foreground = '0xdcd7ba'
+
+[colors.normal]
+black =   '0x090618'
+red =     '0xc34043'
+green =   '0x76946a'
+yellow =  '0xc0a36e'
+blue =    '0x7e9cd8'
+magenta = '0x957fb8'
+cyan =    '0x6a9589'
+white =   '0xc8c093'
+
+[colors.bright]
+black =   '0x727169'
+red =     '0xe82424'
+green =   '0x98bb6c'
+yellow =  '0xe6c384'
+blue =    '0x7fb4ca'
+magenta = '0x938aa9'
+cyan =    '0x7aa89f'
+white =   '0xdcd7ba'
+
+[colors.selection]
+background = '0x2d4f67'
+foreground = '0xc8c093'
+
+# [colors.primary]
+# background = "#282828"
+# foreground = "#ebdbb2"
+# #cursor = { text = "CellBackground", cursor = "#528bff" }
+# #selection = { text = "CellForeground", background = "#3e4451" }
+#
+# [colors.normal]
+# black = "#282828"
+# red = "#cc241d"
+# green = "#98971a"
+# yellow = "#d79921"
+# blue = "#458588"
+# magenta = "#b16286"
+# cyan = "#689d6a"
+# white = "#a89984"
+#
+# [colors.bright]
+# black = "#928374"
+# red = "#fb4934"
+# green = "#b8bb26"
+# yellow = "#fabd2f"
+# blue = "#83a598"
+# magenta = "#d3869b"
+# cyan = "#8ec07c"
+# white = "#ebdbb2"
+
+
+[bell]
+animation = "EaseOutExpo"
+duration = 4
+color = "#ffffff"
+
+[selection]
+save_to_clipboard = true
+
+[cursor]
+# shape = "Block" | "Underline" | "Beam"
+# blinking = "Never" | "Off" | "On" | "Always"
+style = { shape = "Block", blinking = "On"}
+vi_mode_style = { shape = "Beam", blinking = "Off" }
+unfocused_hollow = true
+
+[keyboard]
+bindings = [ { key = "V", mods = "Control|Shift", action = "Paste" },
+         {key = "C", mods = "Control|Shift", action = "Copy"},
+         {key = "Insert", mods = "Shift", action = "PasteSelection"},
+         {key = "Key0", mods = "Control", action = "ResetFontSize"},
+         {key = "Equals", mods = "Control", action = "IncreaseFontSize"},
+         {key = "Plus", mods = "Control", action = "IncreaseFontSize"},
+         {key = "Minus", mods = "Control", action = "DecreaseFontSize"},
+         {key = "F11", mods = "None", action = "ToggleFullScreen"},
+         {key = "Paste", mods = "None", action = "Paste" },
+         {key = "Copy", mods = "None", action = "Copy"},
+         {key = "L", mods = "Control", action = "ClearLogNotice"},
+         {key = "PageUp", mods = "None", mode = "~Alt", action = "ScrollPageUp"},
+         {key = "PageDown", mods = "None", mode = "~Alt", action = "ScrollPageDown"},
+         {key = "Home", mods = "Shift", mode = "~Alt", action = "ScrollToTop"},
+         {key = "End", mods = "Shift", mode = "~Alt", action = "ScrollToBottom"}]
