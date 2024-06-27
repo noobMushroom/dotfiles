@@ -14,7 +14,7 @@ vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 8
-vim.opt.colorcolumn = "100"
+-- vim.opt.colorcolumn = "100"
 
 -- Harpoon keybinds --
 -- Open harpoon ui

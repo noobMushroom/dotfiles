@@ -274,7 +274,7 @@ myLogHook = return ()
 myStartupHook = do
   spawnOnce "picom -b &"
   spawnOnce "~/.fehbg"
-  spawnOnce "conky"
+  spawnOnce "conky -c ~/.config/conky/conky.conf"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
