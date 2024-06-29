@@ -1,28 +1,13 @@
 #!/bin/sh
 
-# Prints the current volume or 🔇 if muted.
-
-case $BLOCK_BUTTON in
-	1) setsid -f "$TERMINAL" -e pulsemixer ;;
-	2) amixer -D pulse set Master toggle ;;
-	4) amixer -D pulse set Master 5%+ unmute ;;
-	5) amixer -D pulse set Master 5%- unmute ;;
-	3) notify-send "📢 Volume module" "\- Shows volume 🔊, 🔇 if muted.
-- Middle click to mute.
-- Scroll to change." ;;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
-esac
-
-vol=$(amixer get Master | grep -o -E '[0-9]+%' | head -1)
-muted=$(amixer get Master | grep -o -E 'off|mute')
+vol=$(pamixer --get-volume)
+muted=$(pamixer --get-mute)
 
 # If muted, print 🔇 and exit.
-if [ "$muted" == "off" ] || [ "$muted" == "mute" ]; then
+if [ "$muted" == "true" ] ; then
     echo 🔇
     exit
 fi
-
-vol="${vol%%\%}"
 
 case 1 in
 	$((vol >= 70)) ) icon="🔊" ;;
@@ -31,4 +16,4 @@ case 1 in
 	* ) echo 🔇 && exit ;;
 esac
 
-echo "$icon$vol%"
+printf "%s%s\n" $icon$vol%

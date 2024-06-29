@@ -4,6 +4,7 @@ export TERMINAL="alacritty"
 export MANPAGER="nvim +Man!"
 # for doom
 export PATH="$HOME/.config/emacs/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config/"
 
 alias lf="lfrun"
 alias rm="trash"
@@ -72,3 +73,9 @@ source ~/.cache/wal/colors-tty.sh
 
 # Alternative (blocks terminal for 0-3ms)
 \cat ~/.cache/wal/sequences
+
+
+update () {
+    sudo pacman -Syu
+    pkill -RTMIN+24 dwmblocks
+}

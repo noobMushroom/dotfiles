@@ -34,8 +34,9 @@ fi
 
 ~/.fehbg
 picom -b &
+dwmblocks &
 # brave &
 # keepassxc &
 exec ~/.local/bin/startdwm
-exec dwm
+# exec dwm
 # exec xmonad 
