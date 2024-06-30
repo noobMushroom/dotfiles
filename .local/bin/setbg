@@ -1,23 +1,7 @@
 #!/bin/zsh
 
-# picture_name=$1
-#
-# wal -i $picture_name
-#
-# sed -i '17d' ~/.cache/wal/colors-wal-dwm.h
-#
-# echo "Recompiling dwm with new colors"
-# (cd $HOME/repos/dwm-6.5 && sudo make clean install>/dev/null)
-#
-# echo "restart your dwm"
-
-
-
-
 PIC=$(find "$HOME/Pictures/wallpapers" -type f | shuf -n 1)
-wal -i $PIC 
-awk 'NR==1{print "*.c1: ", $0} NR==9{print "*.c2: ", $0} NR==8{print "*.c3: ", $0} NR==3{print "*.c4: ", $0} NR==8{print "*.c5: ", $0} NR==8{print "*.c6: ", $0}' $HOME/.cache/wal/colors > $XDG_CONFIG_HOME/xresources
+wal -qi $PIC 
+awk 'NR==1{print "*.normbgcolor: ", $0} NR==9{print "*.normbordercolor: ", $0} NR==8{print "*.normfgcolor: ", $0} NR==3{print "*.selbgcolor: ", $0} NR==8{print "*.selbordercolor: ", $0} NR==8{print "*.selfgcolor: ", $0}' $HOME/.cache/wal/colors > $XDG_CONFIG_HOME/xresources
 xrdb -merge $XDG_CONFIG_HOME/xresources
-# echo "merging"
-# xrdb -merge /home/mushroom/.cache/wal/colors.Xresources 
 xsetroot -name "fsignal:1"
