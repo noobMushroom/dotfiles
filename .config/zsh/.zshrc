@@ -79,3 +79,19 @@ update () {
     sudo pacman -Syu
     pkill -RTMIN+24 dwmblocks
 }
+
+export COLOR_BACKGROUND="#000000"
+
+
+# for yazi
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/projects/gems"
+export PATH="$HOME/projects/gems/bin:$PATH"

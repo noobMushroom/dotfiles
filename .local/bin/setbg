@@ -1,7 +1,7 @@
-#!/bin/zsh
+#!/bin/sh
 
-PIC=$(find "$HOME/Pictures/wallpapers" -type f | shuf -n 1)
-wal -qi $PIC 
+PIC=$(find "$HOME/Pictures/wallpapers/SFW/" -type f | shuf -n 1)
+wal -i $PIC 
 awk 'NR==1{print "*.normbgcolor: ", $0} NR==9{print "*.normbordercolor: ", $0} NR==8{print "*.normfgcolor: ", $0} NR==3{print "*.selbgcolor: ", $0} NR==8{print "*.selbordercolor: ", $0} NR==8{print "*.selfgcolor: ", $0}' $HOME/.cache/wal/colors > $XDG_CONFIG_HOME/xresources
 xrdb -merge $XDG_CONFIG_HOME/xresources
 xsetroot -name "fsignal:1"

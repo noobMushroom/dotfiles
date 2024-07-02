@@ -4,7 +4,7 @@ TERM = "xterm-256color"
 [window]
 padding = {x = 2, y = 2}
 dynamic_padding = false
-opacity = 1 
+opacity = 1.0
 title = "Alacritty"
 class = {instance = "Alacritty", general = "Alacritty"}
 
@@ -30,7 +30,7 @@ glyph_offset = {x = 0, y = 1}
 [colors]
 
 [colors.primary]
-background = '0x1f1f28'
+background = '0x000000'
 foreground = '0xdcd7ba'
 
 [colors.normal]
