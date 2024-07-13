@@ -1,0 +1,35 @@
+[manager]
+ratio = [1, 4, 3]
+sort_dir_first = true
+linemode = 'size'
+show_symlink = true 
+
+
+[opener]
+edit = [
+    {run = 'nvim "$0"', block = true, orphan = true},
+]
+play = [
+    {run = 'mpv "$0"', block = true, orphan = true},
+]
+image = [
+    {run= 'feh -F "$0"', block=true},
+]
+open =[
+    {run = 'xdg-open "$@"', orphan = true},
+]
+pdf = [
+    {run = 'zathura "$0"', block = true}
+]
+
+
+[open]
+rules = [
+	{ mime = "text/*", use = "edit" },
+	{ mime = "image/*", use = "image" },
+	{ mime = "video/*", use = "play" },
+	{ name = "*.json", use = "edit" },
+	{ name = "*.pdf", use = "pdf" },
+	{ name = "*.html", use = [ "open", "edit" ] },
+]
+

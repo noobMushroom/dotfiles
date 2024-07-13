@@ -42,7 +42,7 @@ RPROMPT='%F{red}${vcs_info_msg_0_}%f'
 
 source $HOME/.config/zsh/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.config/zsh/zsh_plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source $HOME/.config/zsh/zsh_plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 
 # Enable checking for (un)staged changes, enabling use of %u and %c
@@ -76,7 +76,7 @@ source ~/.cache/wal/colors-tty.sh
 
 
 update () {
-    sudo pacman -Syu
+    sudo  paru -Syu
     pkill -RTMIN+24 dwmblocks
 }
 
@@ -87,7 +87,7 @@ export COLOR_BACKGROUND="#000000"
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+	if cwd="$(\cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
 		cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
@@ -95,3 +95,7 @@ function yy() {
 # Install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/projects/gems"
 export PATH="$HOME/projects/gems/bin:$PATH"
+
+source <(fzf --zsh)
+
+fastfetch

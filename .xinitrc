@@ -32,7 +32,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 
-xrdb -merge $XDG_CONFIG_HOME/xresources
+xrdb -merge ~/.cache/wal/dwm.xresources 
 ~/.fehbg
 picom -b &
 dwmblocks &
@@ -40,4 +40,4 @@ dwmblocks &
 # keepassxc &
 exec ~/.local/bin/startdwm
 # exec dwm
-# exec xmonad 
+ # exec xmonad 

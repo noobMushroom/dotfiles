@@ -22,7 +22,7 @@ bold_italic = { family = "Source Code Pro", style = "Bold Italic"}
 #                {index = 19, color = "0x353535"},
 #                {index = 20, color = "0xb2ccd6"},
 #                {index = 21, color = "0xeeffff"}]
-size = 8 
+size = 7 
 offset = {x = 0, y = 1}
 glyph_offset = {x = 0, y = 1}
 #draw_bold_text_with_bright_colors = true

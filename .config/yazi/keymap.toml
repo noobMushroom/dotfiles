@@ -1,0 +1,5 @@
+[manager]
+prepend_keymap = [
+	{ on = [ "<C-s>" ], run = ["plugin --sync setbg"], desc = "Just for test!" },
+]
+

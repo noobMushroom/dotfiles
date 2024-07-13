@@ -51,6 +51,9 @@ return {
             lspconfig.jdtls.setup({
                 capabilities = capabilities,
             })
+            lspconfig.pylsp.setup({
+                capabilities = capabilities,
+            })
         end,
     },
 }
