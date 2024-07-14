@@ -42,8 +42,7 @@ RPROMPT='%F{red}${vcs_info_msg_0_}%f'
 
 source $HOME/.config/zsh/zsh_plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/zsh_plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source $HOME/.config/zsh/zsh_plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
+source $HOME/.config/zsh/zsh_plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Enable checking for (un)staged changes, enabling use of %u and %c
 zstyle ':vcs_info:*' check-for-changes true
@@ -59,12 +58,25 @@ zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 . "$HOME/.cargo/env"
 
-bindkey              '^I'         menu-complete
-bindkey "$terminfo[kcbt]" reverse-menu-complete
-
+bindkey -M menuselect              '^I'         menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+bindkey              '^I' menu-select
+bindkey "$terminfo[kcbt]" menu-select
 zstyle ':autocomplete:*'  ignored-input 'pacman*##'
-
 eval "$(zoxide init --cmd cd zsh)"
+zstyle '*:compinit' arguments -D -i -u -C -w
+
+
+# all Tab widgets
+zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+
+# all history widgets
+zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+
+# ^S
+zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+
+zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 
 #For pywal
 source ~/.cache/wal/colors-tty.sh
