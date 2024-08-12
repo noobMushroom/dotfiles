@@ -15,8 +15,11 @@ return {
             -- local macchiato = require("catppuccin.palettes").get_palette("macchiato")
 
             -- Create a highlight group for the popup menu
-            local text_highlight = wilder.make_hl("WilderText", { { a = 1 }, { a = 1 }, { foreground = "gruvbox" } })
-            local mauve_highlight = wilder.make_hl("WilderMauve", { { a = 1 }, { a = 1 }, { foreground = "gruvbox" } })
+            -- local text_highlight = wilder.make_hl("WilderText", { { a = 1 }, { a = 1 }, { foreground = "gruvbox" } })
+            -- local mauve_highlight = wilder.make_hl("WilderMauve", { { a = 1 }, { a = 1 }, { foreground = "gruvbox" } })
+
+            local text_highlight = wilder.make_hl("WilderText", { { a = 1 }, { a = 1 }, { foreground = "rose-pine" } })
+            local mauve_highlight = wilder.make_hl("WilderMauve", { { a = 1 }, { a = 1 }, { foreground = "rose-pine" } })
 
             -- Enable wilder when pressing :, / or ?
             wilder.setup({ modes = { ":", "/", "?" } })

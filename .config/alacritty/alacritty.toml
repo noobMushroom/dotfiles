@@ -12,10 +12,10 @@ class = {instance = "Alacritty", general = "Alacritty"}
 history = 5000
 
 [font]
-normal = { family = "Source Code Pro", style = "Regular" }
-bold = { family = "Source Code Pro", style = "Bold"}
-italic = { family = "Source Code Pro", style = "Italic"}
-bold_italic = { family = "Source Code Pro", style = "Bold Italic"}
+normal = { family = "JetBrains Mono", style = "Regular" }
+bold = { family = "JetBrains Mono", style = "Bold"}
+italic = { family = "JetBrains Mono", style = "Italic"}
+bold_italic = { family = "JetBrains Mono", style = "Bold Italic"}
 #indexed_colors = [{index = 16, color = "0xf78c6c"},
 #                {index = 17, color = "0xff5370"},
 #                {index = 18, color = "0x303030"},

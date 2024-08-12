@@ -1,2 +1,5 @@
 #!/bin/sh
-wal -qi "$1"
+
+
+dir=$(cd ~/projects/python/pywal/)
+(ls $dir)

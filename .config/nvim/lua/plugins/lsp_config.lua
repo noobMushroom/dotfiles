@@ -21,6 +21,13 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        init_options = {
+            userLanguages = {
+                eelixir = "html-eex",
+                eruby = "erb",
+                rust = "html",
+            },
+        },
         dependencies = {
             { "j-hui/fidget.nvim", tag = "legacy" },
         },
@@ -49,6 +56,9 @@ return {
                 capabilities = capabilities,
             })
             lspconfig.jdtls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.asm_lsp.setup({
                 capabilities = capabilities,
             })
             lspconfig.pylsp.setup({

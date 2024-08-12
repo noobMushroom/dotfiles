@@ -1,0 +1,33 @@
+#!/bin/sh
+
+# Main configuration file
+main_conf="/home/mushroom/.config/cava/config"
+
+# New color settings file
+new_colors="/home/mushroom/.cache/wal/colors.cava"
+
+# Temporary file to store intermediate results
+temp_file=$(mktemp)
+
+# Function to update the color settings
+update_colors() {
+  awk '
+  BEGIN { in_colors_section = 0; }
+  /^\[color\]/ { in_colors_section = 1; print; next; }
+  in_colors_section && /^gradient_color_8/ { in_colors_section = 0; next; }
+  in_colors_section && in_colors_section { next; }
+  { print; }
+  ' "$1" > "$2"
+}
+
+# Check if the main configuration file exists
+  # Update the colors in the temporary file
+  update_colors "$main_conf" "$temp_file"
+  
+  # Append new color settings to the temporary file
+  \cat "$new_colors" >> "$temp_file"
+
+  # Replace the original configuration file with the updated one
+  mv "$temp_file" "$main_conf"
+
+  echo "Color settings updated successfully."

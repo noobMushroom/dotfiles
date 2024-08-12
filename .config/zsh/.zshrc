@@ -79,7 +79,6 @@ zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 
 #For pywal
-source ~/.cache/wal/colors-tty.sh
 # Not supported in the "fish" shell.
 (\cat ~/.cache/wal/sequences &)
 
@@ -88,7 +87,7 @@ source ~/.cache/wal/colors-tty.sh
 
 
 update () {
-    sudo  paru -Syu
+    paru
     pkill -RTMIN+24 dwmblocks
 }
 
@@ -110,4 +109,4 @@ export PATH="$HOME/projects/gems/bin:$PATH"
 
 source <(fzf --zsh)
 
-fastfetch
+eval "$(starship init zsh)"
