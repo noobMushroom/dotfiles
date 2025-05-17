@@ -32,12 +32,17 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 
-xrdb -merge ~/.cache/wal/dwm.xresources 
-~/.fehbg
-picom -b &
-dwmblocks &
+# xrdb -merge ~/.cache/wal/dwm.xresources 
+ ~/.fehbg
+ picom -b &
+# dwmblocks &
 # brave &
 # keepassxc &
-exec ~/.local/bin/startdwm
+# exec i3
+setxkbmap -layout us -variant dvorak
+# exec ~/.local/bin/startdwm
 # exec dwm
- # exec xmonad 
+# exec xmonad 
+ export XDG_SESSION_TYPE=x11
+ exec ~/.config/chadwm/scripts/run.sh
+

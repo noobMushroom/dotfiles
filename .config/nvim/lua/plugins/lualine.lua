@@ -4,8 +4,7 @@ return {
     config = function()
         require("lualine").setup({
             options = {
-                theme = "rose-pine",
-                -- theme = "gruvbox",
+                theme = require("neofusion.lualine"),
             },
         })
     end,

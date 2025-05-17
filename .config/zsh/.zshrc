@@ -5,6 +5,11 @@ export MANPAGER="nvim +Man!"
 # for doom
 export PATH="$HOME/.config/emacs/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config/"
+export PGPASSFILE="$HOME/Documents/.pgpass"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias lf="lfrun"
 alias rm="trash"
@@ -110,3 +115,6 @@ export PATH="$HOME/projects/gems/bin:$PATH"
 source <(fzf --zsh)
 
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/mushroom/.bun/_bun" ] && source "/home/mushroom/.bun/_bun"

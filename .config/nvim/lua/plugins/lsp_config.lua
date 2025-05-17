@@ -46,22 +46,31 @@ return {
             lspconfig.hls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.lua_ls.setup({
+            -- lspconfig.prettier.setup({
+            --     capabilities = capabilities,
+            -- })
+            lspconfig.tailwindcss.setup({
                 capabilities = capabilities,
             })
-            lspconfig.zls.setup({
+            lspconfig.quick_lint_js.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.cssls.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.svelte.setup({
+                capabilities = capabilities,
+            })
+
+            lspconfig.jsonls.setup({
                 capabilities = capabilities,
             })
             lspconfig.clangd.setup({
                 capabilities = capabilities,
             })
-            lspconfig.jdtls.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.asm_lsp.setup({
-                capabilities = capabilities,
-            })
-            lspconfig.pylsp.setup({
+            lspconfig.zls.setup({
                 capabilities = capabilities,
             })
         end,
