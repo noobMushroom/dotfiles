@@ -11,28 +11,29 @@ by Miguel Avila
 */
 
 :root {
-  scrollbar-width: none !important;
+    scrollbar-width: none !important;
 }
 
-@-moz-document url(about:home), url(about:newtab), url(about:privatebrowsing) {
-  :root {
+@-moz-document url(about:home), url(about:newtab), url(about:privatebrowsing){
+:root {
     scrollbar-width: none !important;
-  }
-  .click-target-container *,
-  .top-sites-list * {
-    color: #fff !important ;
-    text-shadow: 2px 2px 2px #222 !important ;
-  }
+}
 
-  body::before {
+.click-target-container *,
+.top-sites-list * {
+    color: #fff !important;
+    text-shadow: 2px 2px 2px #222 !important;
+}
+
+body::before {
     content: "";
     z-index: -1;
     position: fixed;
     top: 0;
     left: 0;
-    background: #f9a no-repeat url(img/girl_looking_back_glowing_leg.png) center;
+    background: #f9a no-repeat url(img/firefax_back.png) center;
     background-size: cover;
     width: 100vw;
     height: 100vh;
-  }
+}
 }

@@ -1,4 +1,50 @@
 [templates.hyprland]
-input_path = '~/.config/mat'
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/colors.conf'
 post_hook = 'hyprctl reload'
+
+
+[templates.hyprland]
+input_path = 'path/to/template'
+output_path = '~/.config/hypr/colors.conf'
+
+
+[templates.waybar]
+input_path = 'path/to/template'
+output_path = '~/.config/waybar/colors.css'
+
+
+[templates.kitty]
+input_path = 'path/to/template'
+output_path = '~/.config/kitty/colors.conf'
+
+
+[templates.gtk3]
+input_path = 'path/to/template'
+output_path = '~/.config/gtk-3.0/colors.css'
+
+[templates.gtk4]
+input_path = 'path/to/template'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+
+[templates.rofi]
+input_path = 'path/to/template'
+output_path = '~/.config/rofi/colors.rasi'
+
+
+[templates.qt5ct]
+input_path = 'path/to/template'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+[templates.alacritty]
+input_path = 'path/to/template'
+output_path = '~/.config/alacritty/colors.toml'
+
+[templates.starship]
+input_path = 'path/to/template'
+output_path = '~/.config/starship.toml'
+
+[templates.yazi]
+input_path = 'path/to/template'
+output_path = '~/.config/yazi/theme.toml'
