@@ -4,7 +4,7 @@ TERM = "xterm-256color"
 [window]
 padding = {x = 2, y = 2}
 dynamic_padding = false
-opacity = 1
+opacity = 0.8
 title = "Alacritty"
 class = {instance = "Alacritty", general = "Alacritty"}
 
@@ -22,7 +22,7 @@ bold_italic = { family = "JetBrains Mono", style = "Bold Italic"}
 #                {index = 19, color = "0x353535"},
 #                {index = 20, color = "0xb2ccd6"},
 #                {index = 21, color = "0xeeffff"}]
-size = 7 
+size =  10
 offset = {x = 0, y = 1}
 glyph_offset = {x = 0, y = 1}
 #draw_bold_text_with_bright_colors = true

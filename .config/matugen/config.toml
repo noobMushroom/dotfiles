@@ -1,0 +1,4 @@
+[templates.hyprland]
+input_path = '~/.config/mat'
+output_path = '~/.config/hypr/colors.conf'
+post_hook = 'hyprctl reload'
