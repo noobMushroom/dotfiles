@@ -1,0 +1,17 @@
+#!/bin/zsh
+
+# Kill already running processes
+_ps=(waybar )
+for _prs in "${_ps[@]}"; do
+    if pidof "${_prs}" >/dev/null; then
+        pkill "${_prs}"
+    fi
+done
+
+sleep 0.3
+# Relaunch waybar
+waybar -l off &
+sleep 0.3
+# Relaunching rainbow borders if the script exists
+
+exit 0

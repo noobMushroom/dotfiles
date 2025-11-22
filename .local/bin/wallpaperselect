@@ -1,0 +1,68 @@
+#!/bin/zsh
+
+wallDIR="$PWD"
+SAVE_FILE="$HOME/.config/wallpaper/current"
+mkdir -p "$(dirname "$SAVE_FILE")"
+
+# Quote find output properly
+PICS=($(find "$wallDIR" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.gif" \) -print0 | xargs -0 -n1 echo))
+
+RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]} + 1))]}"
+RANDOM_PIC_NAME=". random"
+
+rofi_command="rofi -i -dmenu -p 'Choose wallpaper' -config ~/.config/rofi/config-wallpaper.rasi"
+
+menu() {
+  sorted_options=($(printf '%s\n' "${PICS[@]}" | sort))
+  printf "%s\n" "$RANDOM_PIC_NAME"
+  for pic_path in "${sorted_options[@]}"; do
+    pic_name=$(basename "$pic_path")
+    printf "%s\x00icon\x1f%s\n" "$pic_name" "$pic_path"
+  done
+}
+
+write_script() {
+  SCRIPT=~/.config/hypr/scripts/reload_wallpaper.sh
+
+cat > "$SCRIPT" <<EOF
+#!/bin/zsh
+sleep 10
+hyprctl hyprpaper reload , "$selected"
+echo "Running at \$(date)" >> /tmp/wallpaper_debug.log
+echo "Wallpaper: $selected" >> /tmp/wallpaper_debug.log
+notify-send "Wallpaper restored"
+break
+EOF
+
+}
+
+main() {
+  choice=$(menu | ${=rofi_command})
+  [[ -z "$choice" ]] && exit 0
+
+  if [[ "$choice" = "$RANDOM_PIC_NAME" ]]; then
+    selected="$RANDOM_PIC"
+  else
+    for pic in "${PICS[@]}"; do
+      if [[ "$(basename "$pic")" = "$choice" ]]; then
+        selected="$pic"
+        break
+      fi
+    done
+  fi
+
+  [[ -z "$selected" ]] && { echo "Image not found."; exit 1; }
+
+  write_script $selected
+  hyprctl hyprpaper reload , "$selected"
+  wallust run $selected
+}
+
+if pidof rofi >/dev/null; then
+  pkill rofi
+  exit 0
+fi
+
+main
+sleep 0.2
+refresh

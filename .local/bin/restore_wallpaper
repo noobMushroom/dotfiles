@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+SAVE_FILE="$HOME/.config/wallpaper/current"
+
+if [ -f "$SAVE_FILE" ]; then
+    WALLPAPER=$(cat "$SAVE_FILE")
+    sleep 5
+    [ -f "$WALLPAPER" ] && hyprctl hyprpaper reload , "$WALLPAPER"
+fi

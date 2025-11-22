@@ -3,7 +3,7 @@ return {
         "diegoulloao/neofusion.nvim",
         config = function()
             vim.o.background = "dark"
-            vim.cmd("colorscheme neofusion")
+            -- vim.cmd("colorscheme neofusion")
         end
     }
     ,
@@ -83,7 +83,7 @@ return {
         "morhetz/gruvbox",
         name = "gruvbox",
         config = function()
-            -- vim.cmd.colorscheme("gruvbox")
+            vim.cmd.colorscheme("gruvbox")
         end,
     },
 }

@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+alacritty -e sh -c "$*; read -p 'press enter to continue...'" 
+
+

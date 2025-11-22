@@ -1,0 +1,20 @@
+#!/bin/zsh
+
+
+if [ "$#" -ne 1 ]; then 
+    echo "USAGE: $0 <Path to file>"
+    exit 1
+fi
+
+IMAGE="$1"
+
+
+wal -i "$IMAGE" -n -s -t -e 
+
+matugen image "$IMAGE"
+
+
+pkill waybar
+waybar > /dev/null 2>&1 &
+
+

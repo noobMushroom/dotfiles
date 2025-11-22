@@ -32,8 +32,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 
-# xrdb -merge ~/.cache/wal/dwm.xresources 
- ~/.fehbg
+xrdb -merge ~/.cache/wal/dwm.xresources 
+~/.fehbg
  picom -b &
 # dwmblocks &
 # brave &
@@ -44,5 +44,5 @@ setxkbmap -layout us -variant dvorak
 # exec dwm
 # exec xmonad 
  export XDG_SESSION_TYPE=x11
- exec ~/.config/chadwm/scripts/run.sh
+exec ~/.config/chadwm/scripts/run.sh
 

@@ -14,7 +14,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 alias lf="lfrun"
 alias rm="trash"
 alias ls="lsd -hl -v --group-directories-first"
-alias cat="bat"
+# alias cat="bat"
 alias config='/usr/bin/git --git-dir=/home/mushroom/dotfiles --work-tree=/home/mushroom'
 
 # Basic auto/tab complete
@@ -85,10 +85,8 @@ zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 
 #For pywal
 # Not supported in the "fish" shell.
-(\cat ~/.cache/wal/sequences &)
-
 # Alternative (blocks terminal for 0-3ms)
-\cat ~/.cache/wal/sequences
+
 
 
 update () {
@@ -103,7 +101,7 @@ export COLOR_BACKGROUND="#000000"
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
 	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(\cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
 		cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
