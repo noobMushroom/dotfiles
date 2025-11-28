@@ -83,18 +83,10 @@ zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
 
 zstyle ':completion:*:*' matcher-list 'm:{[:lower:]-}={[:upper:]_}' '+r:|[.]=**'
 
-#For pywal
-# Not supported in the "fish" shell.
-# Alternative (blocks terminal for 0-3ms)
-
-
-
 update () {
     paru
     pkill -RTMIN+24 dwmblocks
 }
-
-export COLOR_BACKGROUND="#000000"
 
 
 # for yazi
@@ -106,10 +98,6 @@ function yy() {
 	fi
 	rm -f -- "$tmp"
 }
-# Install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/projects/gems"
-export PATH="$HOME/projects/gems/bin:$PATH"
-
 source <(fzf --zsh)
 
 eval "$(starship init zsh)"
